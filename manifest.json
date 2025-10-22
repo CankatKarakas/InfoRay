@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "InfoRay",
+  "version": "1.0",
+  "description": "Uses Google AI models to score the credibility of search results in real-time.",
+  "icons": {
+    "16": "icons/compass16.png",
+    "48": "icons/compass48.png",
+    "128": "icons/compass128.png"
+  },
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "https://generativelanguage.googleapis.com/*",
+        "https://factchecktools.googleapis.com/*",
+        "https://www.google.com/search?*",
+        "https://scholar.google.com/scholar?*" // BURAYI EKLEDİK
+    ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+"content_scripts": [
+  {
+    "matches": [
+      "https://www.google.com/search?*",
+      "https://scholar.google.com/scholar?*" // BURAYI DA EKLEDİK
+    ],
+    "js": [
+      "content.js"
+    ],
+    "css": [
+      "styles.css"
+    ],
+    "run_at": "document_idle"
+  }
+]
+}

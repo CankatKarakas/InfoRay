@@ -1,0 +1,70 @@
+/* * Bu dosya, content.js tarafından Google arama sayfasına enjekte edilen 
+ * Güvenilirlik Rozeti (Badge), Tooltip ve Yükleme Göstergesi (Spinner) 
+ * stillerini içerir.
+ */
+
+/* Yükleme göstergesi (spinner) için animasyon kuralı */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Kapsayıcı ve Rozet Stilleri --- */
+
+.compass-badge-container {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    min-height: 40px;
+    /* Diğer kapsayıcı stilleri buraya */
+}
+
+.compass-badge-container img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- Tooltip (Gerekçe) Stilleri --- */
+
+.compass-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    width: 300px;
+    background-color: #ffffff;
+    color: #333;
+    text-align: left;
+    border-radius: 8px;
+    padding: 12px;
+    position: fixed; /* body'e göre sabitlenecek */
+    z-index: 999999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 1px solid #e5e7eb;
+    pointer-events: none; /* Tooltip'in fare olaylarını engellemesi için */
+}
+
+.compass-tooltip h4 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1f2937;
+}
+
+.compass-tooltip p {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+/* --- Yükleme Durumu Stilleri (Opsiyonel Eklemeler) --- */
+
+/* * Bu stil, content.js'deki yükleme göstergesinin görünümünü 
+ * iyileştirmek için kullanılabilir. 
+ */
+.compass-loading-state .loading-spinner {
+    /* content.js'de tanımlanan inline stilleri geçersiz kılmak için */
+    flex-shrink: 0; 
+}
